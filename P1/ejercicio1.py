@@ -33,5 +33,5 @@ while escagnosrepartidos < escagno:
     escagnosrepartidos += 1
 
 for i in range(0, numPartidos):
-    print(listaPartidos[i]["nombre"], "con ", listaPartidos[i]["votos"], " ha conseguido ",
+    print(listaPartidos[i]["nombre"], "con ", listaPartidos[i]["votos"], " votos ha conseguido ",
           listaPartidos[i]["escagno"], " escaño/escaños.")
