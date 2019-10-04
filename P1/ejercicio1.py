@@ -1,7 +1,13 @@
 import numpy as np
 
-escagno = int(input("¿Cuántos escaños se reparten? "))
-numPartidos = int(input("¿Cuántos partidos se presentan a las elecciones? "))
+
+try:
+    escagno = int(input("¿Cuántos escaños se reparten? "))
+    numPartidos = int(input("¿Cuántos partidos se presentan a las elecciones? "))
+except ValueError:
+    print("No es un número")
+    exit(-1)
+
 listaPartidos = []
 
 
@@ -33,5 +39,5 @@ while escagnosrepartidos < escagno:
     escagnosrepartidos += 1
 
 for i in range(0, numPartidos):
-    print(listaPartidos[i]["nombre"], "con ", listaPartidos[i]["votos"], " votos ha conseguido ",
+    print(listaPartidos[i]["nombre"], " con ", listaPartidos[i]["votos"], " votos ha conseguido ",
           listaPartidos[i]["escagno"], " escaño/escaños.")
