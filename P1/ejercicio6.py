@@ -16,7 +16,7 @@ matrix = np.zeros(shape=(shape[0], shape[1]+1))
 
 for i in range(0, len(lines)-1):
     lines[i+1] = lines[i+1].split(' ')
-    lines[i+1] = [int(j) for j in lines[i+1]]
+    lines[i+1] = [float(j) for j in lines[i+1]]
 
     matrix[i,:] = np.array(lines[i+1])
 
@@ -31,4 +31,4 @@ for i in range(0, shape[0]):
     results.append(np.linalg.det(newmatrix)/np.linalg.det(coeficients))
 
 results = np.array(results)
-print(results.round(4))
+print(results.round(3))
