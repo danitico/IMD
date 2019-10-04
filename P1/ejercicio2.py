@@ -8,7 +8,7 @@ except ValueError:
     exit(-1)
 
 
-matrix = np.random.randint(6, size=(rows, cols))
+matrix = np.random.rand(rows, cols)
 
 print("Los valores de la matriz son")
 print(matrix)
