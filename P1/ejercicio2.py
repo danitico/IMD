@@ -70,9 +70,6 @@ else:
     coldata1 = matrix[:, col1]
     coldata2 = matrix[:, col2]
 
-    print(coldata1)
-    print(coldata2)
-
     dotproduct = np.dot(coldata1, coldata2)
     mod1 = np.sqrt(np.dot(coldata1, coldata1))
     mod2 = np.sqrt(np.dot(coldata2, coldata2))
