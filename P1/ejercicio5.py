@@ -8,6 +8,11 @@
 import numpy as np
 import sys
 
+
+if len(sys.argv) != 2:
+    print("Se ha llamado mal al programa")
+    sys.exit(-1)
+
 try:
     f = open(sys.argv[1], 'rt')
 except IOError:
@@ -25,7 +30,7 @@ for i in range(0, len(lines)-1):
     lines[i+1] = lines[i+1].split(' ')
     lines[i+1] = [int(j) for j in lines[i+1]]
 
-    matrix[i,:] = np.array(lines[i+1])
+    matrix[i, :] = np.array(lines[i+1])
 
 print("La matriz es:")
 print(matrix)

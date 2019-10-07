@@ -1,12 +1,13 @@
 import numpy as np
 from scipy import stats
+import sys
 
 try:
     rows = int(input("Introduzca el número de filas: "))
     cols = int(input("Introduzca el número de columnas: "))
 except ValueError:
     print("No es un número")
-    exit(-1)
+    sys.exit(-1)
 
 matrix = np.zeros(shape=(rows, cols))
 
@@ -17,7 +18,7 @@ for i in range(0, rows):
             matrix[i, j] = int(input())
         except ValueError:
             print("No es un numero")
-            exit(-1)
+            sys.exit(-1)
 
 print(matrix)
 
