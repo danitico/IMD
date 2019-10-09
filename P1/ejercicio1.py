@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 
 
 try:
@@ -6,7 +7,7 @@ try:
     numPartidos = int(input("¿Cuántos partidos se presentan a las elecciones? "))
 except ValueError:
     print("No es un número")
-    exit(-1)
+    sys.exit(-1)
 
 listaPartidos = []
 

@@ -1,11 +1,12 @@
 import numpy as np
+import sys
 
 try:
     rows = int(input("Introduzca el número de filas: "))
     cols = int(input("Introduzca el número de columnas: "))
 except ValueError:
     print("No es un número")
-    exit(-1)
+    sys.exit(-1)
 
 
 matrix = np.random.rand(rows, cols)
@@ -26,7 +27,7 @@ while True:
         opcion = int(input("Eliga una de las opciones: "))
     except ValueError:
         print("No es un número")
-        exit(-1)
+        sys.exit(-1)
 
     if opcion in [1, 2]:
         break
@@ -39,11 +40,11 @@ if opcion is 1:
         row2 = int(input("Introduzca la segunda fila: "))
     except ValueError:
         print("No es un número")
-        exit(-1)
+        sys.exit(-1)
 
     if row1 not in range(0, rows) or row2 not in range(0, rows):
         print("Una de las filas no existe")
-        exit(-1)
+        sys.exit(-1)
 
     rowdata1 = matrix[row1, :]
     rowdata2 = matrix[row2, :]
@@ -61,11 +62,11 @@ else:
         col2 = int(input("Introduzca la segunda columna: "))
     except ValueError:
         print("No es un número")
-        exit(-1)
+        sys.exit(-1)
 
     if col1 not in range(0, cols) or col2 not in range(0, cols):
         print("Una de las columnas no existe")
-        exit(-1)
+        sys.exit(-1)
 
     coldata1 = matrix[:, col1]
     coldata2 = matrix[:, col2]
