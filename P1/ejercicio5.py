@@ -42,7 +42,7 @@ else:
     inversa = np.linalg.inv(matrix)
     print(inversa)
 
-    #La matriz original multiplicada por la matriz⁻¹ tiene
+    #La matriz original multiplicada por su inversa tiene
     #que dar la matriz identidad
 
     print("Si la inversa se ha calculado correctamente")
