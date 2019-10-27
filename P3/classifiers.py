@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import arff
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import cross_val_score
@@ -41,7 +43,7 @@ for i in to_classify:
 
     print("Base de datos ", i)
     print("Árbol de decision")
-    clf = DecisionTreeClassifier(random_state=42)
+    clf = DecisionTreeClassifier(random_state=42, max_depth=5, min_samples_split=4)
     accuracy1 = cross_val_score(clf, X, Y, cv=10,
                              scoring='accuracy')
 
@@ -49,7 +51,7 @@ for i in to_classify:
     treeaccuracy.append(accuracy1.mean())
 
     print("K vecinos")
-    clf1 = KNeighborsClassifier()
+    clf1 = KNeighborsClassifier(p=1)
     accuracy2 = cross_val_score(clf1, X, Y, cv=10,
                              scoring='accuracy')
 
@@ -57,15 +59,24 @@ for i in to_classify:
     knnaccuracy.append(accuracy2.mean())
 
     print("SVM")
-    clf2 = svm.SVC(kernel='linear', C=1, random_state=42)
+    clf2 = svm.SVC(kernel='linear', C=0.5, random_state=42)
     accuracy3 = cross_val_score(clf2, X, Y, cv=10,
                              scoring='accuracy')
 
     print("accuracy Score = ", accuracy3.mean())
     svmaccuracy.append(accuracy3.mean())
 
-print(treeaccuracy)
-print(knnaccuracy)
-print(svmaccuracy)
+
+print("Tree accuracy")
+for i in treeaccuracy:
+    print(i)
+
+print("KNN accuracy")
+for i in knnaccuracy:
+    print(i)
+
+print("SVM accuracy")
+for i in svmaccuracy:
+    print(i)
 
 
