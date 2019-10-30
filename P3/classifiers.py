@@ -7,6 +7,7 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn import svm
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.impute import SimpleImputer
+from sklearn.model_selection import train_test_split
 import pandas as pd
 import numpy as np
 import warnings
@@ -41,9 +42,11 @@ for i in to_classify:
     Y = np.array(data[:, data.shape[1]-1])
 #    Y = Y.astype(np.float64)
 
+    # X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=42)
+
     print("Base de datos ", i)
     print("Árbol de decision")
-    clf = DecisionTreeClassifier(random_state=42, max_depth=5, min_samples_split=4)
+    clf = DecisionTreeClassifier(random_state=42, max_depth=10, min_samples_split=4)
     accuracy1 = cross_val_score(clf, X, Y, cv=10,
                              scoring='accuracy')
 
@@ -59,7 +62,7 @@ for i in to_classify:
     knnaccuracy.append(accuracy2.mean())
 
     print("SVM")
-    clf2 = svm.SVC(kernel='linear', C=0.5, random_state=42)
+    clf2 = svm.SVC(kernel='linear', C=15, random_state=42)
     accuracy3 = cross_val_score(clf2, X, Y, cv=10,
                              scoring='accuracy')
 
