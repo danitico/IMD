@@ -12,7 +12,6 @@ import pandas as pd
 import numpy as np
 import warnings
 
-
 warnings.filterwarnings('ignore')
 
 to_classify = ['data/BreastTissue.csv', 'data/contact-lenses.arff', 'data/diabetes.arff', 'data/ecoli.arff',
@@ -37,38 +36,37 @@ for i in to_classify:
         imp.fit(data)
         data = imp.transform(data)
 
-    X = np.array(data[:, 0:data.shape[1]-1])
+    X = np.array(data[:, 0:data.shape[1] - 1])
     X = X.astype(np.float64)
-    Y = np.array(data[:, data.shape[1]-1])
-#    Y = Y.astype(np.float64)
+    Y = np.array(data[:, data.shape[1] - 1])
+    #    Y = Y.astype(np.float64)
 
     # X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=42)
 
     print("Base de datos ", i)
     print("Árbol de decision")
-    clf = DecisionTreeClassifier(random_state=42, max_depth=10, min_samples_split=4)
+    clf = DecisionTreeClassifier(random_state=42, max_depth=7, min_samples_split=5)
     accuracy1 = cross_val_score(clf, X, Y, cv=10,
-                             scoring='accuracy')
+                                scoring='accuracy')
 
     print("accuracy Score = ", accuracy1.mean())
     treeaccuracy.append(accuracy1.mean())
 
     print("K vecinos")
-    clf1 = KNeighborsClassifier(p=1)
+    clf1 = KNeighborsClassifier(n_neighbors=7, p=1)
     accuracy2 = cross_val_score(clf1, X, Y, cv=10,
-                             scoring='accuracy')
+                                scoring='accuracy')
 
     print("accuracy Score = ", accuracy2.mean())
     knnaccuracy.append(accuracy2.mean())
 
     print("SVM")
-    clf2 = svm.SVC(kernel='linear', C=15, random_state=42)
+    clf2 = svm.SVC(kernel='poly', C=15, random_state=42)
     accuracy3 = cross_val_score(clf2, X, Y, cv=10,
-                             scoring='accuracy')
+                                scoring='accuracy')
 
     print("accuracy Score = ", accuracy3.mean())
     svmaccuracy.append(accuracy3.mean())
-
 
 print("Tree accuracy")
 for i in treeaccuracy:
@@ -81,5 +79,3 @@ for i in knnaccuracy:
 print("SVM accuracy")
 for i in svmaccuracy:
     print(i)
-
-
