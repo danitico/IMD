@@ -61,7 +61,7 @@ for i in to_classify:
     knnaccuracy.append(accuracy2.mean())
 
     print("SVM")
-    clf2 = svm.SVC(kernel='poly', C=15, random_state=42)
+    clf2 = svm.SVC(kernel='linear', C=0.01, random_state=42)
     accuracy3 = cross_val_score(clf2, X, Y, cv=10,
                                 scoring='accuracy')
 

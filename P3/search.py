@@ -31,9 +31,8 @@ grid_values1 = {
 }
 
 grid_values2 = {
-    'C': [1e-3, 1e-2, 1e-1, 1, 10, 100, 1000],
-    'kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
-    'degree': [1, 2, 3, 4, 5, 6, 7, 8]
+    'C': [1e-1, 1, 10, 100],
+    'kernel': ['linear'],
 }
 
 
@@ -65,7 +64,7 @@ for i in classify:
 #    gridKnn.fit(X_train, y_train)
 #    print(accuracy_score(y_test, gridKnn.predict(X_test)))
 
-    gridsvm = GridSearchCV(clf2, param_grid=grid_values2, scoring='accuracy', n_jobs=-1)
+    gridsvm = GridSearchCV(clf2, param_grid=grid_values2, scoring='accuracy', n_jobs=-1, cv=3)
     gridsvm.fit(X_train, y_train)
     print(accuracy_score(y_test, gridsvm.predict(X_test)))
 

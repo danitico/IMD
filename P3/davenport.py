@@ -1,5 +1,4 @@
 from scipy.stats import friedmanchisquare, f
-import numpy as np
 import pandas as pd
 
 df = pd.read_csv('results.csv', header=0)
