@@ -1,0 +1,11 @@
+,AdaBoost
+BreastTissue,0.6052
+Contact-Lenes,0.6583
+Diabetes,0.7527
+Ecoli,0.7152
+Glass,0.5795
+Ionosphere,0.9266
+Divorce,0.9778
+Vote,0.9584
+Zoo,0.8898
+Segment,0.6943

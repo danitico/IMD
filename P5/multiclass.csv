@@ -1,0 +1,11 @@
+,OneVsOne,OneVsRest,ECOC
+Avila,0.9546,0.9413,0.9891
+BreastTissue,0.6799,0.5858,0.5717
+Contact-Lenses,0.7833,0.7833,0.5
+Ecoli,0.8336,0.8042,0.8235
+Glass,0.6979,0.6289,0.7323
+Movement-libras,0.7167,0.5322,0.75
+PhishingData,0.8856,0.8803,0.7914
+Segment,0.9606,0.9494,0.958
+statlog,0.823,0.7893,0.8134
+Zoo,0.9323,0.8992,0.9255
